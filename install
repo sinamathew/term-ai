@@ -38,7 +38,7 @@ add_to_profile "$TERM_AI_ALIAS"
 
 # Move script directory (assuming it's the parent of term-ai.js)
 echo "Moving script directory to ~/.local/bin/term-ai..."
-if mv ../term-ai/ ~/.local/bin/term-ai; then
+if mv ../term-ai/ ~/.local/bin/; then
 	echo "Script directory moved successfully."
 else
 	echo "Error: Failed to move script directory."
