@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Script location
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+
+# Function to add lines to bash profile
+add_to_profile() {
+	local line="$1"
+	if grep -qF "$line" ~/.bashrc; then
+		echo "Line '$line' already exists in .bashrc"
+	else
+		echo "# Added by TermAI" >>~/.bashrc
+		echo "$line" >>~/.bashrc
+		echo "Line '$line' added to .bashrc"
+	fi
+}
+
+# Get user name
+read -p "Enter your name (optional): " USER_NAME
+
+# Loop until a valid API key is entered
+while true; do
+	read -sp "Enter your Gemini API key: " GEMINI_API_KEY
+	echo
+	if [[ -z "$GEMINI_API_KEY" ]]; then
+		echo "Error: Please enter your Gemini API key."
+	else
+		break
+	fi
+done
+
+# Create lines for bash profile
+TERM_AI_USER_LINE="export TERM_AI_USER='${USER_NAME:-}'"
+GEMINI_API_KEY_LINE="export GEMINI_API_KEY='$GEMINI_API_KEY'"
+TERM_AI_ALIAS="alias term-ai='node ~/.local/bin/term-ai/term-ai.js/'"
+
+# Add lines to bash profile
+add_to_profile "$TERM_AI_USER_LINE"
+add_to_profile "$GEMINI_API_KEY_LINE"
+add_to_profile "$TERM_AI_ALIAS"
+
+# Move script directory (assuming it's the parent of term-ai.js)
+echo "Moving script directory to ~/.local/bin/term-ai..."
+if mv "$SCRIPT_DIR" ~/.local/bin/term-ai; then
+	echo "Script directory moved successfully."
+else
+	echo "Error: Failed to move script directory."
+fi
+
+# Source bashrc automatically
+source ~/.bashrc
+
+echo "Installation complete! You can now use 'term-ai' to start the Gemini chat application."

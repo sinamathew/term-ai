@@ -20,7 +20,7 @@ const run = async () => {
         history = JSON.parse(historyData);
     }
 
-    console.log(chalk.hex('#00FF00')("Hey, how may I help you today?"));
+    console.log(chalk.hex('#00FF00')("Hey" + process.env.TERM_AI_USER + " , how may I help you today?"));
 
     const chat = model.startChat({
         history: history
@@ -37,7 +37,7 @@ const run = async () => {
     };
 
     const promptUser = () => {
-        process.stdout.write(chalk.hex("#3776FF")("You: "));
+        process.stdout.write(chalk.hex("#3776FF")(process.env.TERM_AI_USER + ": "));
     };
 
     promptUser();
