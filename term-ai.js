@@ -20,7 +20,7 @@ const run = async () => {
         history = JSON.parse(historyData);
     }
 
-    console.log("Chat started. You can start typing.");
+    console.log(chalk.hex('#00FF00')("Hey, how may I help you today?"));
 
     const chat = model.startChat({
         history: history
@@ -32,7 +32,7 @@ const run = async () => {
         const frames = ['|', '/', '-', '\\'];
         let i = 0;
         return setInterval(() => {
-            process.stdout.write("\r" + chalk.hex("#FF6161")("Bot: " + frames[i++ % frames.length]) + " Generating...");
+            process.stdout.write("\r" + chalk.hex("#FF6161")("TermAI: " + frames[i++ % frames.length]));
         }, 250);
     };
 
@@ -57,8 +57,9 @@ const run = async () => {
         const loader = loadingBar();
         process.stdin.pause();
         await chat.sendMessage(input).then(async (x) => {
-            clearInterval(loader);
-            console.log("\r" + chalk.hex("#FF6161")("Bot:"), marked(x.response.text()));
+	    clearInterval(loader);
+            console.log("\r" + chalk.hex("#FF6161")("TermAI:") + "😊")
+	    process.stdout.write(marked(x.response.text()));
 
             history.push(
                 {
