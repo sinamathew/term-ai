@@ -20,7 +20,7 @@ const run = async () => {
         history = JSON.parse(historyData);
     }
 
-    console.log(chalk.hex('#00FF00')("Hey" + process.env.TERM_AI_USER + " , how may I help you today?"));
+    console.log(chalk.hex('#00FF00')("Hey " + process.env.TERM_AI_USER + ", how may I help you today?"));
 
     const chat = model.startChat({
         history: history
