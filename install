@@ -36,7 +36,10 @@ add_to_profile "$TERM_AI_USER_LINE"
 add_to_profile "$GEMINI_API_KEY_LINE"
 add_to_profile "$TERM_AI_ALIAS"
 
-# Move script directory (assuming it's the parent of term-ai.js)
+# Install dependencies
+npm install
+
+# Move script directory
 echo "Moving script directory to ~/.local/bin/term-ai..."
 if mv ../term-ai/ ~/.local/bin/; then
 	echo "Script directory moved successfully."
