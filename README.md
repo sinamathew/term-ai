@@ -9,8 +9,11 @@
 </p>
 
 ## Installation
-A simple installation guide.
-* Firstly, navigate to [Google AI Studio](https://aistudio.google.com/app/apikey) to get a Gemini API key.
+A simple installation guide (Worked on Ubuntu and Debian).
+* Firstly, make sure you have the latest `nodejs` and `npm` installed. 
+```sh
+sudo apt install nodejs
+```
 
 * Clone this repository using the script below.
 ```sh
@@ -21,27 +24,18 @@ git clone https://github.com/sinamathew/term-ai.git
 ```sh   
 cd term-ai 
 chmod u+x install
+npm install
 sudo ./install
 ```
 
-## Configuration
-First of all, get your API key from https://aistudio.google.com/app/ and paste it in the index.js file.
+* Get your Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey).
 
-```javascript
-const API_KEY = "YOUR_API_KEY";
-```
-
-Install the required package by running:
-```
-npm install
-```
-
-All is done, to start the chat run:
-```
-term-ai 
-```
 
 ## Features
-Your entire chat's stored in the `"history.json"` file.
+* Your entire chat's stored in the `"history.json"` file.
 
-To exit the chat and delete a conversation (history.json), type `"exit"` in terminal.
+* Render code in markdown using `"markes-terminal"` module.
+
+* To exit the chat and delete a conversation (history.json), type `"exit"` in terminal.
+
+Feel free to create PR for update or fix issues.
