@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "@google/generative-ai": "^0.2.1",
+    "marked": "^13.0.2",
+    "marked-terminal": "^7.1.0",
     "ora": "^8.0.1"
   }
 }

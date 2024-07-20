@@ -1,10 +1,14 @@
+
 const run = async () => {
     const { GoogleGenerativeAI } = require("@google/generative-ai");
     const fs = require("fs");
     const { default: chalk } = await import("chalk");
+    const  { marked } = require('marked');
+    const { markedTerminal } = require('marked-terminal');
+    marked.use(markedTerminal());
 
     const MODEL_NAME = "gemini-1.0-pro";
-    const API_KEY = "YOUR_API_KEY"; // https://aistudio.google.com/app/
+    const API_KEY = process.env.GEMINI_API_KEY; // Environment variable
 
     const genAI = new GoogleGenerativeAI(API_KEY);
     const model = genAI.getGenerativeModel({ model: MODEL_NAME });
@@ -54,7 +58,7 @@ const run = async () => {
         process.stdin.pause();
         await chat.sendMessage(input).then(async (x) => {
             clearInterval(loader);
-            console.log("\r" + chalk.hex("#FF6161")("Bot:"), x.response.text());
+            console.log("\r" + chalk.hex("#FF6161")("Bot:"), marked(x.response.text()));
 
             history.push(
                 {
@@ -75,3 +79,4 @@ const run = async () => {
 }
 
 run();
+
