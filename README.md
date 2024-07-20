@@ -1,6 +1,6 @@
 # TermAI
 
-<img src="https://ik.imagekit.io/unburn/gcc.svg">
+<img src="https://i.imgur.com/8xtwQYl.png" alt="TermAI poem">
 
 <p align="center">Start an interactive chat on your terminal using TermAI and Gemini API.</p>
 
