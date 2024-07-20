@@ -1,12 +1,30 @@
+# TermAI
+
 <img src="https://ik.imagekit.io/unburn/gcc.svg">
 
-<p align="center">Start an interactive chat on your terminal using Gemini.</p>
+<p align="center">Start an interactive chat on your terminal using TermAI and Gemini API.</p>
 
 <p align="center">
-    <a href="https://discord.gg/66uGX7t4ww"><b>Discord</b></a>
+    <a href="https://discord.gg/tgF2ruAv7q"><b>Discord</b></a>
 </p>
 
-## Config
+## Installation
+A simple installation guide.
+* Firstly, navigate to [Google AI Studio](https://aistudio.google.com/app/apikey) to get a Gemini API key.
+
+* Clone this repository using the script below.
+```sh
+git clone https://github.com/sinamathew/term-ai.git
+```
+
+* Navigate to the repo and run the installation script.
+```sh   
+cd term-ai 
+chmod u+x install
+sudo ./install
+```
+
+## Configuration
 First of all, get your API key from https://aistudio.google.com/app/ and paste it in the index.js file.
 
 ```javascript
@@ -20,7 +38,7 @@ npm install
 
 All is done, to start the chat run:
 ```
-node index.js
+term-ai 
 ```
 
 ## Features
