@@ -38,4 +38,4 @@ sudo ./install
 
 * To exit the chat and delete a conversation (history.json), type `"exit"` in terminal.
 
-Feel free to create PR for update or fix issues.
+Feel free to create PR for update or fix issues. **Oyi si**
