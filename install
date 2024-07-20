@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Get script directory (one level up)
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
 # Function to add lines to bash profile
 add_to_profile() {
 	local line="$1"
@@ -41,7 +38,7 @@ add_to_profile "$TERM_AI_ALIAS"
 
 # Move script directory (assuming it's the parent of term-ai.js)
 echo "Moving script directory to ~/.local/bin/term-ai..."
-if mv "$SCRIPT_DIR" ~/.local/bin/term-ai; then
+if mv ../term-ai/ ~/.local/bin/term-ai; then
 	echo "Script directory moved successfully."
 else
 	echo "Error: Failed to move script directory."
